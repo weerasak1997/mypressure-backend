@@ -1,0 +1,11 @@
+<?php
+return[
+  'logout'=>'ลงชื่อออก',
+  'edit-profile'=>'แก้ไขข้อมูล',
+  'edit-username'=>'แก้ไขข้อมูลผู้ใช้',
+  'change-password'=>'แก้ไขรหัสผ่าน',
+  'email'=>'อีเมล',
+  'edit-password'=>'เปลี่ยนรหัสผ่าน',
+  'password'=>'รหัสผ่าน',
+  'repassword'=>'รหัสผ่านอีกครั้ง',
+];

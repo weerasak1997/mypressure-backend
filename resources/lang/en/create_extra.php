@@ -1,0 +1,30 @@
+<?php
+ 
+ return [
+  'choose-customer'=>'Choose customer',
+  'customer-code'=>'Customer code',
+  'product-code'=>'Product code',
+  'previous'=>'Previous',
+  'next'=>'Next',
+  'finish'=>'Finish',
+  'choose-reason'=>'Reasons for additional warranty.',
+  'incorrect-document'=>'The document specifies incorrect information.',
+  'documentation'=>"Documentation",
+  'packaging'=>"Packaging",
+  'advertiser'=>'Advertising/Sales Information',
+  'other'=>'Other',
+  'condition'=>'Conditions and benefits of after-sales service.',
+  'refer-fill'=>'Fill in the reference number.',
+  'other-reason'=>'Fill in other reasons.',
+  'evidence'=>'Attach additional evidence',
+  'choose1'=>'Must select 1 item',
+  'additional-warranty-time'=>'Additional warranty requested.',
+  'additional-warranty-list'=>'List of requests for approval of additional warranty periods.',
+  'amount'=>'Amount',
+  'month'=>'Month',
+  'day'=>'Day',
+  'confirm'=>'Confirm Detail',
+  'confirm-detail'=>'Confirm all information is correct. Evidence has been attached correctly.',
+  'create-document'=>'Create document',
+];
+// {{__('create_extra.amount')}}
