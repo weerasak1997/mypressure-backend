@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('type',['gmail','apple'])->default('gmail');
             $table->datetime('last_login')->nullable();
             $table->mediumText('token_id')->nullable();
+            $table->boolean('multiple_show')->default(0);
             $table->timestamps();
         });
     }

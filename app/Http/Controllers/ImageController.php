@@ -18,8 +18,9 @@ class ImageController extends Controller
             $imageData = $request->input('image1');
             $imageData = base64_decode($imageData);
             $filename = uniqid() . '.png'; // Assuming the image is PNG, adjust as needed
-            $path1 = 'public/upload/' . $filename;
-            $path = 'https://mypressure.the8th-floor.com/storage/upload/66b4ce5f48cba.png';
+            $path = 'public/upload/' . $filename;
+            Storage::put($path, $imageData);
+            $path = 'https://mypressure.the8th-floor.com/storage/upload/'. $filename;
             $imageSize = getimagesize($path);
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -54,16 +55,28 @@ class ImageController extends Controller
             curl_close($curl);
             Log::info($response);
             //delete image1
-            Storage::delete($path1);
+            Storage::delete($path);
             $response = json_decode($response);
-            $sys = $response->result;
+            try {
+                if($response != null){
+                    if (array_key_exists('result', $response)) {
+                        $sys = $response->result;
+                    }else{
+                        $sys =0;
+                    }
+                }else{
+                    $sys = 0;
+                }
+            } catch (Exception $e) {
+                $sys = 0;
+            }
             // image 2
             $imageData = $request->input('image2');
             $imageData = base64_decode($imageData);
             $filename = uniqid() . '.png'; // Assuming the image is PNG, adjust as needed
-            $path2 = 'public/upload/' . $filename;
-            
-            $path = 'https://mypressure.the8th-floor.com/storage/upload/66b4ce5f4af89.png';
+            $path = 'public/upload/' . $filename;
+            Storage::put($path, $imageData);
+            $path = 'https://mypressure.the8th-floor.com/storage/upload/'. $filename;
             $imageSize = getimagesize($path);
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -98,16 +111,28 @@ class ImageController extends Controller
             curl_close($curl);
             Log::info($response);
             //delete image2
-            Storage::delete($path2);
+            Storage::delete($path);
             $response = json_decode($response);
-            $dia = $response->result;
+            try {
+                if($response != null){
+                    if (array_key_exists('result', $response)) {
+                        $dia = $response->result;
+                    }else{
+                        $dia =0;
+                    }
+                }else{
+                    $dia = 0;
+                }
+            } catch (Exception $e) {
+                $dia = 0;
+            }
             // image 3
             $imageData = $request->input('image3');
             $imageData = base64_decode($imageData);
             $filename = uniqid() . '.png'; // Assuming the image is PNG, adjust as needed
-            $path3 = 'public/upload/' . $filename;
-            
-            $path = 'https://mypressure.the8th-floor.com/storage/upload/66b4ce5f4b274.png';
+            $path = 'public/upload/' . $filename;
+            Storage::put($path, $imageData);
+            $path = 'https://mypressure.the8th-floor.com/storage/upload/'. $filename;
             $imageSize = getimagesize($path);
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -142,9 +167,21 @@ class ImageController extends Controller
             curl_close($curl);
             Log::info($response);
             //delete image3
-            Storage::delete($path3);
+            Storage::delete($path);
             $response = json_decode($response);
-            $pul = $response->result;
+            try {
+                if($response != null){
+                    if (array_key_exists('result', $response)) {
+                        $pul = $response->result;
+                    }else{
+                        $pul =0;
+                    }
+                }else{
+                    $pul = 0;
+                }
+            } catch (Exception $e) {
+                $pul = 0;
+            }
             return response()->json(['sys' => $sys,'dia'=>$dia,'pul'=>$pul], 200);
         }
         return response()->json(['message' => 'File upload failed'], 400);
